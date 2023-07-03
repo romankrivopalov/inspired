@@ -1,7 +1,9 @@
+import Header from './components/Header/Header.jsx';
+
 const App = () => (
-  <div>
-    <h1>Привет React</h1>
-  </div>
+  <>
+    <Header />
+  </>
 )
 
 export default App;
