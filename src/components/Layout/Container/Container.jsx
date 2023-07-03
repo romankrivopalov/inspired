@@ -1,8 +1,9 @@
 import cn from 'classnames';
+import style from './Container.module.scss';
 
-const Container = (props) => (
-  <div className={cn("container", props.className)}>
-    {props.children}
+const Container = ({ className, children }) => (
+  <div className={cn(style.container, className)}>
+    {children}
   </div>
 )
 
