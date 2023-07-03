@@ -6,7 +6,7 @@ import logo from '/src/assets/logo.svg';
 const Top = () => (
   <div className={s.top}>
     <Container className={s.topContainer}>
-      <a className={cn(s.topLink, s.topPhone)} href="tel:89304902620">
+      <a className={cn(s.topLink, s.topPhone)} href="tel:+79304902620">
         8 930 490 26 20
       </a>
 
