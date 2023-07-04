@@ -1,77 +1,62 @@
+import { NavLink } from 'react-router-dom';
 import s from './Category.module.scss';
+
+const list = [
+  {
+    link: 'women',
+    title: 'Женщины',
+    categories: [
+      { link: 'bras', title: 'Бюстгалтеры'},
+      { link: 'panties', title: 'Трусы'},
+      { link: 'socks', title: 'Носки'},
+      { link: 'bathrobes', title: 'Халаты'},
+      { link: 'thermal', title: 'Термобелье'},
+      { link: 'pijamas', title: 'Пижамы'},
+    ]
+  },
+  {
+    link: 'men',
+    title: 'Мужчины',
+    categories: [
+      { link: 'panties', title: 'Трусы'},
+      { link: 'socks', title: 'Носки'},
+      { link: 'bathrobes', title: 'Халаты'},
+      { link: 'thermal', title: 'Термобелье'},
+    ]
+  }
+]
 
 const Category = () => (
   <div className={s.category}>
     <h2 className={s.categoryTitle}>
       Каталог
     </h2>
-    <div className={s.categoryList}>
-      <div>
-        <h3 className={s.categorySubtitle}>
-          Женщины
-        </h3>
-        <ul className={s.categorySublist}>
-          <li>
-            <a className={s.categoryLink} href="/">
-              Бюстгальтеры
-            </a>
-          </li>
-          <li>
-            <a className={s.categoryLink} href="/">
-              Трусы
-            </a>
-          </li>
-          <li>
-            <a className={s.categoryLink} href="/">
-              Носки
-            </a>
-          </li>
-          <li>
-            <a className={s.categoryLink} href="/">
-              Халаты
-            </a>
-          </li>
-          <li>
-            <a className={s.categoryLink} href="/">
-              Термобелье
-            </a>
-          </li>
-          <li>
-            <a className={s.categoryLink} href="/">
-              Пижамы
-            </a>
-          </li>
-        </ul>
-        </div>
 
-        <div>
-        <h3 className={s.categorySubtitle}>
-          Мужчины
-        </h3>
-        <ul className={s.categorySublist}>
-          <li>
-            <a className={s.categoryLink} href="/">
-              Трусы
-            </a>
+    <ul className={s.categoryList}>
+      {
+        list.map(item => (
+          <li key={item.link} >
+            <h3 className={s.categorySubtitle}>
+              <NavLink className={s.categoryLink} to={item.link}>
+                {item.title}
+              </NavLink>
+            </h3>
+
+            <ul className={s.categorySublist}>
+              {
+                item.categories.map(category => (
+                  <li key={category.link}>
+                    <NavLink className={s.categoryLink} to={`${item.link}/${category.link}`}>
+                      {category.title}
+                    </NavLink>
+                  </li>
+                ))
+              }
+            </ul>
           </li>
-          <li>
-            <a className={s.categoryLink} href="/">
-              Носки
-            </a>
-          </li>
-          <li>
-            <a className={s.categoryLink} href="/">
-              Халаты
-            </a>
-          </li>
-          <li>
-            <a className={s.categoryLink} href="/">
-              Термобелье
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
+        ))
+      }
+    </ul>
   </div>
 )
 
