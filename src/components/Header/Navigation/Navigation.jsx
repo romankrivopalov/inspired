@@ -1,12 +1,12 @@
-import Category from './Category/category.jsx';
+import Category from './Category/Category.jsx';
 import Gender from './Gender/Gender.jsx';
 import Container from '../../Layout/Container/Container.jsx';
 
-const Navigation = () => (
+const Navigation = ({ list }) => (
   <nav>
     <Container>
-      <Gender />
-      <Category />
+      <Gender list={list} />
+      <Category list={list} />
     </Container>
   </nav>
 )

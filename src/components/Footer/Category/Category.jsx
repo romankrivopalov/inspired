@@ -1,32 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import s from './Category.module.scss';
 
-const list = [
-  {
-    link: 'women',
-    title: 'Женщины',
-    categories: [
-      { link: 'bras', title: 'Бюстгалтеры'},
-      { link: 'panties', title: 'Трусы'},
-      { link: 'socks', title: 'Носки'},
-      { link: 'bathrobes', title: 'Халаты'},
-      { link: 'thermal', title: 'Термобелье'},
-      { link: 'pijamas', title: 'Пижамы'},
-    ]
-  },
-  {
-    link: 'men',
-    title: 'Мужчины',
-    categories: [
-      { link: 'panties', title: 'Трусы'},
-      { link: 'socks', title: 'Носки'},
-      { link: 'bathrobes', title: 'Халаты'},
-      { link: 'thermal', title: 'Термобелье'},
-    ]
-  }
-]
-
-const Category = () => (
+const Category = ({ list }) => (
   <div className={s.category}>
     <h2 className={s.categoryTitle}>
       Каталог
