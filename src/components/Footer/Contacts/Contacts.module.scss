@@ -6,6 +6,14 @@
   font-size: 18px;
   line-height: 22px;
 
+  &Link {
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: #8a8a8a;
+    }
+  }
+
   @media (max-width: 768px) {
     gap: 21px;
     font-size: 14px;
@@ -18,3 +26,5 @@
     line-height: 15px;
   }
 }
+
+
