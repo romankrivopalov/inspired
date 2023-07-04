@@ -12,7 +12,7 @@ const Footer = () => (
       <Contacts />
 
       <p className={s.copyright}>
-        © INSPIRED, 2023
+        &copy; INSPIRED, 2023
       </p>
       <div className={s.development}>
         <div className={s.developmentList}>
