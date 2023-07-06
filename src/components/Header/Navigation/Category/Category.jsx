@@ -8,7 +8,6 @@ const Category = ({ list }) => {
         gender = location.pathname.split('/')[1] || 'women',
         categoriesList = list.find(i => i.link === gender);
 
-
   return (
     <ul className={s.category}>
       {
