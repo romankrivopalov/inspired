@@ -9,7 +9,7 @@ const router = createBrowserRouter(
       <Route index element={<MainPage />} />
       <Route path="women" element={<MainPage gender="women" />} />
       <Route path="men" element={<MainPage gender="men" />} />
-      <Route path="woman/:category" element={<MainPage gender="women" />} />
+      <Route path="women/:category" element={<MainPage gender="women" />} />
       <Route path="men/:category" element={<MainPage gender="men" />} />
       <Route path="*" element={<ErrorPage />} />
     </Route>
