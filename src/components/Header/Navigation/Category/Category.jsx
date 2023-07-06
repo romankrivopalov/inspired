@@ -1,16 +1,22 @@
+import cn from 'classnames';
 import s from './Category.module.scss';
 
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 const Category = ({ list }) => {
-  const women = list[0].categories;
+  const location = useLocation(),
+        gender = location.pathname.split('/')[1] || 'women',
+        categoriesList = list.find(i => i.link === gender);
+
 
   return (
     <ul className={s.category}>
       {
-        women.map(category => (
+        categoriesList.categories.map(category => (
           <li key={category.link}>
-            <NavLink className={s.categoryLink} to={`women/${category.link}`}>
+            <NavLink
+              className={({ isActive }) => cn(s.categoryLink, isActive && s.categoryLinkActive)}
+              to={`${gender}/${category.link}`}>
               {category.title}
             </NavLink>
           </li>
