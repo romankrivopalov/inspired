@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
 import 'normalize.css';
 import './index.scss';
 import App from './App.jsx';
-import { Provider } from 'react-redux';
 import store from './store.js';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -12,4 +12,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <App />
     </Provider>
   </React.StrictMode>,
-)
+);

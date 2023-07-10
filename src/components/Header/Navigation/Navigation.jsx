@@ -8,13 +8,12 @@ import Container from '../../Layout/Container/Container.jsx';
 
 const Navigation = ({ list }) => {
   const dispatch = useDispatch(),
-        location = useLocation();
+        location = useLocation(),
+        gender = location.pathname.split('/')[1] || 'women';
 
   useEffect(() => {
-    const gender = location.pathname.split('/')[1] || 'women';
-
     dispatch(setActiveGender(gender));
-  }, [location.pathname, dispatch])
+  }, [gender, dispatch])
 
   return (
     <nav>

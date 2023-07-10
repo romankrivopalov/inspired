@@ -2,7 +2,7 @@ import { combineReducers } from "@reduxjs/toolkit";
 import navigationReducer from './features/navigationSlice.js';
 
 const rootReducer = combineReducers({
-  navigator: navigationReducer,
+  navigation: navigationReducer,
 })
 
 export default rootReducer;
