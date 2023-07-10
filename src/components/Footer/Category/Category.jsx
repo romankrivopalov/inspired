@@ -1,38 +1,44 @@
 import { NavLink } from 'react-router-dom';
 import s from './Category.module.scss';
+import { useSelector } from 'react-redux';
 
-const Category = ({ list }) => (
-  <div className={s.category}>
-    <h2 className={s.categoryTitle}>
-      Каталог
-    </h2>
+const Category = () => {
+  const { categories, genderList } = useSelector(state => state.navigation);
+  console.log(categories)
 
-    <ul className={s.categoryList}>
-      {
-        list.map(item => (
-          <li key={item.link} >
-            <h3 className={s.categorySubtitle}>
-              <NavLink className={s.categoryLink} to={item.link}>
-                {item.title}
-              </NavLink>
-            </h3>
+  return (
+    <div className={s.category}>
+      <h2 className={s.categoryTitle}>
+        Каталог
+      </h2>
 
-            <ul className={s.categorySublist}>
-              {
-                item.categories.map(category => (
-                  <li key={category.link}>
-                    <NavLink className={s.categoryLink} to={`${item.link}/${category.link}`}>
-                      {category.title}
-                    </NavLink>
-                  </li>
-                ))
-              }
-            </ul>
-          </li>
-        ))
-      }
-    </ul>
-  </div>
-)
+      <ul className={s.categoryList}>
+        {
+          genderList.map(category => (
+            <li key={category} >
+              <h3 className={s.categorySubtitle}>
+                <NavLink className={s.categoryLink} to={category}>
+                  {categories[category].title}
+                </NavLink>
+              </h3>
+
+              <ul className={s.categorySublist}>
+                {
+                  categories[category].list.map(item => (
+                    <li key={item.slug}>
+                      <NavLink className={s.categoryLink} to={`${category}/${item.slug}`}>
+                        {item.title}
+                      </NavLink>
+                    </li>
+                  ))
+                }
+              </ul>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  )
+}
 
 export default Category;
