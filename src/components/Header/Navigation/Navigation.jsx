@@ -6,7 +6,7 @@ import Category from './Category/Category.jsx';
 import Gender from './Gender/Gender.jsx';
 import Container from '../../Layout/Container/Container.jsx';
 
-const Navigation = ({ list }) => {
+const Navigation = () => {
   const dispatch = useDispatch(),
         location = useLocation(),
         gender = location.pathname.split('/')[1] || 'women';
@@ -18,8 +18,8 @@ const Navigation = ({ list }) => {
   return (
     <nav>
       <Container>
-        <Gender list={list} />
-        <Category list={list} />
+        <Gender />
+        <Category />
       </Container>
     </nav>
   )

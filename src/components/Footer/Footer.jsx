@@ -4,10 +4,10 @@ import Social from './Social/Social.jsx';
 import Contacts from './Contacts/Contacts.jsx';
 import s from './Footer.module.scss';
 
-const Footer = ({ list }) => (
+const Footer = () => (
   <footer>
     <Container className={s.container}>
-      <Category list={list} />
+      <Category />
       <Social />
       <Contacts />
 
