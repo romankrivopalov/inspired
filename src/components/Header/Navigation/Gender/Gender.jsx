@@ -14,7 +14,7 @@ const Gender = () => {
             className={({ isActive }) =>
               cn(s.genderLink, (isActive || gender === activeGender) && s.genderLinkActive)
             }
-            to={gender}>
+            to={`/catalog/${gender}`}>
             {categories[gender].title}
           </NavLink>
         </li>

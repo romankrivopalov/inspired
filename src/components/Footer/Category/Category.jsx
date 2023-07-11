@@ -16,7 +16,7 @@ const Category = () => {
           genderList.map(category => (
             <li key={category} >
               <h3 className={s.categorySubtitle}>
-                <NavLink className={s.categoryLink} to={category}>
+                <NavLink className={s.categoryLink} to={`/catalog/${category}`}>
                   {categories[category].title}
                 </NavLink>
               </h3>
@@ -25,7 +25,7 @@ const Category = () => {
                 {
                   categories[category].list.map(item => (
                     <li key={item.slug}>
-                      <NavLink className={s.categoryLink} to={`${category}/${item.slug}`}>
+                      <NavLink className={s.categoryLink} to={`/catalog/${category}/${item.slug}`}>
                         {item.title}
                       </NavLink>
                     </li>
