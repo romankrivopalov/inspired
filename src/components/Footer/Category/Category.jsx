@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux';
 
 const Category = () => {
   const { categories, genderList } = useSelector(state => state.navigation);
-  console.log(categories)
 
   return (
     <div className={s.category}>
