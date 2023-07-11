@@ -1,10 +1,10 @@
 import Navigation from './Navigation/Navigation.jsx';
 import Top from './Top/Top.jsx';
 
-const Header = ({ list }) => (
+const Header = () => (
   <header>
     <Top />
-    <Navigation list={list} />
+    <Navigation />
   </header>
 )
 
