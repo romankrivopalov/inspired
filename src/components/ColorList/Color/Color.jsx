@@ -1,18 +1,19 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import s from './Color.module.scss';
+import cn from 'classnames';
 
 const Color = ({ color, check }) => {
-  const checkState = useRef(check)
+  const colorRef = useRef(null);
 
-  const handleColorClick = () => {
-    checkState.current = !check
-  }
+  useEffect(() => {
+    colorRef.current.style.setProperty("--data-color", color)
+  }, [color])
 
   return (
     <li
-      className={`${s.color} ${check ? s.colorCheck : ''}`}
+      className={cn(s.color, check ? s.colorCheck : "")}
+      ref={colorRef}
       style={{backgroundColor: color}}
-      onClick={handleColorClick}
       />
   )
 }
