@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import Container from '../../Layout/Container/Container.jsx';
 import cn from 'classnames';
 import s from './Top.module.scss';
@@ -10,9 +11,9 @@ const Top = () => (
         8 930 490 26 20
       </a>
 
-      <a className={s.topLogo} href="/">
+      <NavLink className={s.topLogo} to="/">
         <img src={logo} alt="Логотип inspired, в виде надписи. " />
-      </a>
+      </NavLink>
 
       <div className={s.topNavigation}>
         <ul className={s.topNavList}>
