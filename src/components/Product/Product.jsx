@@ -6,7 +6,7 @@ import s from './Product.module.scss';
 
 const Product = ({ id, pic, title, price, colors }) => (
   <article className={s.product}>
-    <NavLink className={s.link} to={`product/${id}`}>
+    <NavLink className={s.link} to={`/product/${id}`}>
       <img className={s.image} src={`${API_URL}/${pic}`} alt={title} />
       <h3 className={s.title}>
         {title}
