@@ -3,15 +3,9 @@ import Container from "../Layout/Container/Container.jsx";
 import Product from "../Product/Product.jsx";
 import s from './Goods.module.scss';
 
-const Goods = ({ category }) => {
-  const { goodsList } = useSelector(state => state.goods);
-  const { activeGender, categories } = useSelector(state => state.navigation);
-
-  const title = category
-    ? categories[activeGender]?.list
-      .find(item => item.slug === category)
-      .title
-    : 'Новинки';
+const Goods = ({ categoryData }) => {
+  const { goodsList } = useSelector(state => state.goods),
+        title = categoryData?.title ?? 'Новинки';
 
   return (
     <section>
