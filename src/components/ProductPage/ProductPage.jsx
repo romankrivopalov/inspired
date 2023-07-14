@@ -7,12 +7,25 @@ import Container from "../Layout/Container/Container.jsx";
 import s from "./ProductPage.module.scss";
 import cn from "classnames";
 import ColorList from "../ColorList/ColorList.jsx";
+import { ReactComponent as Like } from "../../assets/icon-like.svg";
+import Count from "../Count/Count.jsx";
 
 const ProductPage = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const { product } = useSelector(state => state.product);
+  const [ count, setCount ] = useState(1);
   const [ selectedColor, setSelectedColor ] = useState('');
+
+  const handleIncrement = () => {
+    setCount((prevCount) => prevCount + 1)
+  }
+
+  const handleDecrement = () => {
+    if (count > 1) {
+      setCount((prevCount) => prevCount - 1);
+    }
+  }
 
   const handleColorChange = e => {
     setSelectedColor(e.target.value)
@@ -47,6 +60,32 @@ const ProductPage = () => {
               selectedColor={selectedColor}
               handleColorChange={handleColorChange}
             />
+          </div>
+
+          {/* <ProductSize size={product.size} /> */}
+
+          <div className={s.description}>
+            <p className={cn(s.subtitle, s.descriptionTitle)}>Описание</p>
+            <p className={s.descriptionText}>{product.description}</p>
+          </div>
+
+          <div className={s.control}>
+            <Count
+              className={s.count}
+              count={count}
+              handleIncrement={handleIncrement}
+              handleDecrement={handleDecrement} />
+
+            <button className={s.addCart} type="submit">
+              В корзину
+            </button>
+
+            <button
+              className={s.favorite}
+              aria-label="Добавить в избранное"
+              type="button">
+              <Like />
+            </button>
           </div>
         </form>
       </Container>
