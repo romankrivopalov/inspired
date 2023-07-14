@@ -9,12 +9,14 @@ import cn from "classnames";
 import ColorList from "../ColorList/ColorList.jsx";
 import { ReactComponent as Like } from "../../assets/icon-like.svg";
 import Count from "../Count/Count.jsx";
+import ProductSize from "../ProductSize/ProductSize.jsx";
 
 const ProductPage = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const { product } = useSelector(state => state.product);
   const [ count, setCount ] = useState(1);
+  const [ selectedSize, setSelectedSize ] = useState('');
   const [ selectedColor, setSelectedColor ] = useState('');
 
   const handleIncrement = () => {
@@ -25,6 +27,10 @@ const ProductPage = () => {
     if (count > 1) {
       setCount((prevCount) => prevCount - 1);
     }
+  }
+
+  const handleSizeChange = e => {
+    setSelectedSize(e.target)
   }
 
   const handleColorChange = e => {
@@ -62,7 +68,9 @@ const ProductPage = () => {
             />
           </div>
 
-          {/* <ProductSize size={product.size} /> */}
+          <ProductSize
+            size={product.size}
+            handleSizeChange={handleSizeChange} />
 
           <div className={s.description}>
             <p className={cn(s.subtitle, s.descriptionTitle)}>Описание</p>
