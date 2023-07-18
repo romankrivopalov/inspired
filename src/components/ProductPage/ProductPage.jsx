@@ -30,7 +30,7 @@ const ProductPage = () => {
   }
 
   const handleSizeChange = e => {
-    setSelectedSize(e.target)
+    setSelectedSize(e.target.value)
   }
 
   const handleColorChange = e => {
@@ -70,6 +70,7 @@ const ProductPage = () => {
 
           <ProductSize
             size={product.size}
+            selectedSize={selectedSize}
             handleSizeChange={handleSizeChange} />
 
           <div className={s.description}>

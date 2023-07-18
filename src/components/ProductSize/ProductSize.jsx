@@ -1,28 +1,27 @@
 import s from "./ProductSize.module.scss";
 
-const ProductSize = ({ size, handleSizeChange }) => {
+const ProductSize = ({ size, selectedSize, handleSizeChange }) => {
   return (
     <div className={s.size}>
       <p className={s.title}>Размер</p>
-      <ul className={s.list}>
+      <div className={s.list}>
         {size?.map((item) => {
-          const id = `size-${item}`
-
           return (
-            <li key={item} className={s.item} >
+            <label className={s.item} key={item} >
               <input
                 className={s.input}
-                id={id}
                 name="size"
                 type="radio"
+                value={item}
+                checked={selectedSize === item}
                 onChange={handleSizeChange} />
-              <label className={s.check} htmlFor={id}>
+              <span className={s.check}>
                 {item}
-              </label>
-            </li>
+              </span>
+            </label>
           )
         })}
-      </ul>
+      </div>
     </div>
   )
 }
