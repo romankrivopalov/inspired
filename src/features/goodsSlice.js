@@ -72,4 +72,6 @@ const goodsSlice = createSlice({
   }
 })
 
+export const { setPage } = goodsSlice.actions;
+
 export default goodsSlice.reducer;
