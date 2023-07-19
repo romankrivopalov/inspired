@@ -1,7 +1,7 @@
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { fetchCategory, fetchGender } from '../../features/goodsSlice.js';
+import { fetchData, fetchGender } from '../../features/goodsSlice.js';
 import { setActiveGender } from "../../features/navigationSlice.js";
 import Goods from "../Goods/Goods.jsx";
 import Banner from "../Banner/Banner.jsx";
@@ -24,7 +24,7 @@ const MainPage = () => {
 
   useEffect(() => {
     if (gender && category) {
-      dispatch(fetchCategory({ gender, category }));
+      dispatch(fetchData({ gender, category }));
       return;
     }
 

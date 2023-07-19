@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import Goods from "../Goods/Goods.jsx";
 import { useEffect } from "react";
-import { fetchCategory } from "../../features/goodsSlice";
+import { fetchData } from "../../features/goodsSlice";
 
 const FavoritePage = () => {
   const dispatch = useDispatch();
@@ -9,7 +9,7 @@ const FavoritePage = () => {
   const favorites = useSelector(state => state.favorites);
 
   useEffect(() => {
-    dispatch(fetchCategory({ list: favorites }))
+    dispatch(fetchData({ list: favorites }))
   }, [dispatch, favorites]);
 
   return (

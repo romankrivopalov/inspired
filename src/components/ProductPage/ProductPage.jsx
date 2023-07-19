@@ -10,7 +10,7 @@ import ColorList from "../ColorList/ColorList.jsx";
 import Count from "../Count/Count.jsx";
 import ProductSize from "../ProductSize/ProductSize.jsx";
 import Goods from "../Goods/Goods.jsx";
-import { fetchCategory } from "../../features/goodsSlice.js";
+import { fetchData } from "../../features/goodsSlice.js";
 import BtnLike from "../BtnLike/BtnLike.jsx";
 
 const ProductPage = () => {
@@ -27,7 +27,7 @@ const ProductPage = () => {
   }, [dispatch, id]);
 
   useEffect(() => {
-    dispatch(fetchCategory({ gender, category, count: 4, top: true, exclude: id }))
+    dispatch(fetchData({ gender, category, count: 4, top: true, exclude: id }))
   }, [dispatch, gender, category, id])
 
   const handleIncrement = () => {

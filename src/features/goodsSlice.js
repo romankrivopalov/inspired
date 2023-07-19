@@ -11,8 +11,8 @@ export const fetchGender = createAsyncThunk(
   }
 )
 
-export const fetchCategory = createAsyncThunk(
-  'goods/fetchCategory',
+export const fetchData = createAsyncThunk(
+  'goods/fetchData',
   async (param) => {
     const url = new URL(GOODS_URL);
 
@@ -35,6 +35,11 @@ const goodsSlice = createSlice({
     pages: 0,
     totalCount: null,
   },
+  reducers: {
+    setPage: (state, action) => {
+      state.page = action.payload;
+    }
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchGender.pending, (state) => {
@@ -43,22 +48,24 @@ const goodsSlice = createSlice({
       .addCase(fetchGender.fulfilled, (state, action) => {
         state.status = 'success';
         state.goodsList = action.payload;
+        // запрос выводится на главной странице, там пагинации быть не должно
+        state.pages = 0;
+        state.totalCount = null;
       })
       .addCase(fetchGender.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
       })
-      .addCase(fetchCategory.pending, (state) => {
+      .addCase(fetchData.pending, (state) => {
         state.status = 'loading';
       })
-      .addCase(fetchCategory.fulfilled, (state, action) => {
+      .addCase(fetchData.fulfilled, (state, action) => {
         state.status = 'success';
         state.goodsList = action.payload.goods;
-        state.page = action.payload.page
         state.pages = action.payload.pages
         state.totalCount = action.payload.totalCount
       })
-      .addCase(fetchCategory.rejected, (state, action) => {
+      .addCase(fetchData.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
       })
