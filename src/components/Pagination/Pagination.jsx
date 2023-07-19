@@ -49,7 +49,7 @@ const Pagination = () => {
     return paginationItems;
   }
 
-  return (
+  return ( pages > 1 &&
     <div className={s.pagination}>
       <button
         className={s.arrow}
