@@ -6,4 +6,5 @@ export const COLORS_URL = `${API_URL}/api/colors`; // GET // получить с
 
 export const LOCAL_STORAGE_TITLE = {
   favorites: 'favorites',
+  cart: 'cart'
 }

@@ -14,7 +14,7 @@ const favoritesSlice = createSlice({
         state.push(id);
       }
 
-      localStorage.setItem(LOCAL_STORAGE_TITLE.favorites, JSON.stringify(state))
+      localStorage.setItem(LOCAL_STORAGE_TITLE.favorites, JSON.stringify(state));
     },
 
     removeFromFavorite(state, action) {
@@ -25,7 +25,7 @@ const favoritesSlice = createSlice({
         state.splice(index, 1);
       }
 
-      localStorage.setItem(LOCAL_STORAGE_TITLE.favorites, JSON.stringify(state))
+      localStorage.setItem(LOCAL_STORAGE_TITLE.favorites, JSON.stringify(state));
     },
   }
 });
