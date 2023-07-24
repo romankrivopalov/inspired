@@ -17,10 +17,10 @@ const Footer = () => (
       <div className={s.development}>
         <div className={s.developmentList}>
           <p>
-            Designer: <a className={s.link} href="https://t.me/Mrshmallowww">Anastasia Ilina</a>
+            Designer: <a className={s.link} target='_blank' rel='noopener noreferrer' href="https://t.me/Mrshmallowww">Anastasia Ilina</a>
           </p>
           <p>
-            Developer: <a className={s.link} href="https://github.com/romankrivopalov">Roman Krivopalov</a>
+            Developer: <a className={s.link} target='_blank' rel='noopener noreferrer' href="https://github.com/romankrivopalov">Roman Krivopalov</a>
           </p>
         </div>
       </div>
