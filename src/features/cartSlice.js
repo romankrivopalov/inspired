@@ -7,7 +7,7 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState: {
     cartItems,
-    countItems: cartItems.lenght,
+    countItems: cartItems.length,
   },
   reducers: {
     addToCart(state, action) {
@@ -23,21 +23,23 @@ const cartSlice = createSlice({
         state.cartItems.push({ id, color, size, count });
       }
 
-      localStorage.setItem(LOCAL_STORAGE_TITLE.cart, JSON.stringify(state.cartItems))
+      localStorage.setItem(LOCAL_STORAGE_TITLE.cart, JSON.stringify(state.cartItems));
+      state.countItems = state.cartItems.length;
+    },
+
+    removeFromCart(state, action) {
+      const { id, color, size } = action.payload;
+      const itemIndex = state.cartItems.findIndex(
+        item => item.id === id && item.color === color && item.size === size
+      );
+
+      if (itemIndex !== -1) {
+        state.cartItems.splice(itemIndex, 1);
+      }
+
+      localStorage.setItem(LOCAL_STORAGE_TITLE.cart, JSON.stringify(state.cartItems));
+      state.countItems = state.cartItems.length;
     }
-  },
-
-  removeFromCart(state, action) {
-    const { id, color, size } = action.payload;
-    const itemIndex = state.cartItems.findIndex(
-      item => item.id === id && item.color === color && item.size === size
-    );
-
-    if (itemIndex !== -1) {
-      state.cartItems.splice(itemIndex, 1);
-    }
-
-    localStorage.setItem(LOCAL_STORAGE_TITLE.cart, JSON.stringify(state.cartItems))
   }
 });
 
