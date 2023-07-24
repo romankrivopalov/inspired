@@ -3,6 +3,7 @@ import Goods from "../Goods/Goods.jsx";
 import { useEffect } from "react";
 import { fetchData } from "../../features/goodsSlice.js";
 import usePageFromSearchParams from "../../hooks/usePageFromSearchParams.js";
+import s from './FavoritePage.module.scss';
 
 const FavoritePage = () => {
   const dispatch = useDispatch();
@@ -17,16 +18,16 @@ const FavoritePage = () => {
 
       if (page) {
         param.page = page;
-      }
+      };
 
       dispatch(fetchData(param));
     }
   }, [dispatch, favorites, page]);
 
   return (
-    <div>
-      <Goods title="Избранное" />
-    </div>
+    favorites.length
+    ? <Goods title="Избранное" />
+    : <h3 className={s.empty}>Вы ничего не добавили в избранное</h3>
   )
 };
 
