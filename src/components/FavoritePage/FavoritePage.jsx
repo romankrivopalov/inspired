@@ -18,7 +18,7 @@ const FavoritePage = () => {
 
       if (page) {
         param.page = page;
-      };
+      }
 
       dispatch(fetchData(param));
     }
