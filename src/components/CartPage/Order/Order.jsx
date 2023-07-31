@@ -1,12 +1,19 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { PatternFormat } from 'react-number-format';
 import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
 import Container from '../../Layout/Container/Container.jsx';
+import { sendOrder } from '../../../features/cartSlice.js';
 import s from './Order.module.scss';
 
 const Order = ({ cartItems }) => {
-  const handleSubmitOrder = (values) => {
+  const dispatch = useDispatch();
 
+  const handleSubmitOrder = (values) => {
+    dispatch(sendOrder({
+      order: cartItems,
+      values,
+    }))
   };
 
   const validationSchema = Yup.object({
@@ -88,7 +95,6 @@ const Order = ({ cartItems }) => {
 
               <label className={s.label}>
                 <Field
-                  as={PatternFormat}
                   className={s.input}
                   type="email"
                   placeholder='Email*'
