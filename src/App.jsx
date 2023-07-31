@@ -9,6 +9,7 @@ import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
 import ProductPage from './components/ProductPage/ProductPage.jsx';
 import FavoritePage from './components/FavoritePage/FavoritePage.jsx';
 import CartPage from './components/CartPage/CartPage.jsx';
+import SearchPage from './components/SearchPage/SearchPage.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,6 +20,8 @@ const router = createBrowserRouter(
 
       <Route path="/catalog/:gender/:category?" element={<MainPage />} />
       <Route path="/product/:id" element={<ProductPage />} />
+
+      <Route path="/search" element={<SearchPage />} />
 
       <Route path="*" element={<ErrorPage />} />
     </Route>
