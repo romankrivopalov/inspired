@@ -1,0 +1,11 @@
+.like {
+  transition: all .3s ease-out;
+
+  &:hover {
+    color: darksalmon;
+  }
+}
+
+.active {
+  color: darksalmon;
+}
