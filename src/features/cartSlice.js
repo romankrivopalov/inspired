@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { LOCAL_STORAGE_TITLE, ORDER_URL } from "../const.js";
 
-const cartItems = JSON.parse(localStorage.getItem(LOCAL_STORAGE_TITLE.cart)) || "[]";
+const cartItems = JSON.parse(localStorage.getItem(LOCAL_STORAGE_TITLE.cart)) || [];
 
 export const sendOrder = createAsyncThunk(
   'cart/sendOrder',
