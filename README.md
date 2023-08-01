@@ -1,6 +1,6 @@
 # **inspired**
 
-![preview](https://github.com/romankrivopalov/inspired-react/blob/main/preview.png?raw=true)
+![preview](https://github.com/romankrivopalov/inspired-react/blob/main/src/preview.png)
 
 Интернет магазин нижнего белья, созданный в рамках прохождения марафона в онлайн школе Methed. Сервис позволяет искать товары, сохранять их в избранное, добавлять в корзину и оформить заказ.
 
