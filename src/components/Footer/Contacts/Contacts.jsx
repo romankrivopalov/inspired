@@ -1,4 +1,4 @@
-import s from './contacts.module.scss';
+import s from './Contacts.module.scss';
 
 const Contacts = () => (
   <div className={s.contacts}>
