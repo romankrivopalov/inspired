@@ -10,5 +10,5 @@
 * Redux
 
 ***
-[Открыть сайт в браузере]()\
+[Открыть сайт в браузере](romankrivopalov.github.io/)\
 [Ссылка на макет в Figma](https://www.figma.com/file/jYjRR9jIozya0ufMOlhzlw/INSPIRED-(Marathon)-(Copy)?type=design&node-id=0%3A1&mode=design&t=h2lMev5Tkfzgc1IQ-1)
